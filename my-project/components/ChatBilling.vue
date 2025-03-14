@@ -248,7 +248,7 @@ const pricingPlans = computed(() => {
         <div class="flex items-center justify-between">
           <h3 class="text-sm font-medium">
             {{ selectedCategory === 'Web' ? 'How many chat sessions do you need?' : 'How many WhatsApp messages do you need?' }} 
-            <span class="text-gray-400 ml-1">ℹ️</span>
+            <!-- <span class="text-gray-400 ml-1">ℹ️</span> -->
           </h3>
         </div>
         <div class="flex flex-col gap-4">
@@ -317,7 +317,6 @@ const pricingPlans = computed(() => {
 button {
   transition: all 0.3s ease;
 }
-
 /* Custom range input styling */
 input[type="range"] {
   -webkit-appearance: none;

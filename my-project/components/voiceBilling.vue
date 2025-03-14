@@ -5,7 +5,6 @@ import { ref, computed, onMounted } from 'vue';
 const USD_TO_INR = 70; // 1 USD = 70 INR
 
 // Existing pricing structure
-const selectedCategory = ref('Web');
 const selectedPlan = ref('Monthly');
 const userMinutes = ref(1500); // Start at minimum 1500 minutes
 const basePriceFluent = 14999;
@@ -247,12 +246,6 @@ const formattedTelephonyCost = computed(() => {
   }
   return telephonyMonthlyCost.value;
 });
-
-// Convert USD to INR if needed
-const convertCurrency = (amount, toINR = false) => {
-  if (typeof amount !== 'number') return amount;
-  return toINR ? amount * USD_TO_INR : amount;
-};
 
 // Get numeric values for provider costs (or 0 if not available)
 const numericTtsCost = computed(() => {
@@ -761,3 +754,23 @@ onMounted(() => {
     </div>
   </div>
 </template>
+<style scoped>
+button {
+  transition: all 0.3s ease;
+}
+
+/* Custom range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  @apply h-2 bg-gray-200 rounded-full;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply w-4 h-4 bg-blue-600 rounded-full cursor-pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 bg-blue-600 rounded-full cursor-pointer border-0;
+}
+</style>
